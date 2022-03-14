@@ -1,9 +1,8 @@
-import Index from './pages/Index'
 
 function App() {
   return (
     <div className="App">
-      <Index/>
+      app
     </div>
   );
 }
