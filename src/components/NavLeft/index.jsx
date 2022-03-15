@@ -3,28 +3,33 @@ import MenuConfig from '../../config/menuConfig'
 import { Menu } from 'antd';
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import './index.less'
+import { NavLink } from 'react-router-dom';
 
 const { SubMenu } = Menu;
 export default class NavLeft extends Component {
   state = {
-    menuTreeNode:{}
+    menuTreeNode: {}
   }
-  componentWillMount(){
+  componentWillMount() {
     const menuTreeNode = this.renderMenu(MenuConfig);
     this.setState({
       menuTreeNode
     })
   }
-  renderMenu = (data)=>{
-    return data.map((item)=>{
-      if(item.children){
+  renderMenu = (data) => {
+    return data.map((item) => {
+      if (item.children) {
         return (
           <SubMenu title={item.title} key={item.key}>
             {this.renderMenu(item.children)}
           </SubMenu>
         )
       }
-      return <Menu.Item title={item.title} key={item.key} >{item.title}</Menu.Item>
+      return (
+        <Menu.Item title={item.title} key={item.key} >
+          <NavLink to={item.key}>{item.title}</NavLink>
+        </Menu.Item>
+      )
     })
   }
   render() {
