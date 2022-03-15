@@ -11,13 +11,14 @@ export default class IRouter extends Component {
         return (
             <HashRouter>
                 <Routes>
+                    <Route path='/' element={<Admin />} />
                     <Route path='/login' element={<Login />} />
                     <Route path='/admin' element={<Admin />} >
                         <Route path='' element={<Home />} />
                         <Route path='ui/buttons' element={<Buttons />} />
                         <Route path="*" element={<NotFound />} />
                     </Route>
-                    
+
                 </Routes>
             </HashRouter>
         )
