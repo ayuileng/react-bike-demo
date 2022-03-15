@@ -20,10 +20,6 @@ const menuList = [
                 key:'/admin/ui/loadings',
             },
             {
-                title:'通知提醒',
-                key:'/admin/ui/notification',
-            },
-            {
                 title:'全局Message',
                 key:'/admin/ui/messages',
             },
